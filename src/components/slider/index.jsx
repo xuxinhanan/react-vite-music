@@ -5,7 +5,7 @@ import SwiperCore, { Autoplay, Pagination } from 'swiper'
 import styled from 'styled-components'
 import style from '@/assets/global-style'
 
-export const SliderContainer = styled.div`
+const SliderContainer = styled.div`
   position: relative;
   box-sizing: border-box;
   width: 100%;

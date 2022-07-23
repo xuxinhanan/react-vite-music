@@ -1,9 +1,11 @@
-import { compose, applyMiddleware } from 'redux'
 import { configureStore } from '@reduxjs/toolkit'
-import thunk from 'redux-thunk'
-import reducer from './reducer'
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+import recommendReducer from './recommend'
 
-const store = configureStore(reducer, composeEnhancers(applyMiddleware(thunk)))
+const store = configureStore({
+  reducer: {
+    recommend: recommendReducer
+  },
+  devTools: process.env.NODE_ENV !== 'production'
+})
 
 export default store

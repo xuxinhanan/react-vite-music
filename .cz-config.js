@@ -78,23 +78,21 @@ module.exports = {
   // { name: 'unitTest' },
   // ],
   // },
-  scopeOverrides: {
-    ':wrench: docs': [{ name: ':wrench: docs' }, { name: ':bulb: docs_code' }]
-  },
 
   // override the messages, defaults are as follows
   messages: {
-    type: '选择更改类型:',
-    scope: '\n更改的范围:',
-    // 如果allowcustomscopes为true，则使用
+    type: '选择一种你的提交类型:',
+    scope: '选择一个scope (可选):',
+    // used if allowCustomScopes is true
     customScope: 'Denote the SCOPE of this change:',
-    subject: '简短描述:\n',
-    body: '详细描述. 使用"|"换行:\n',
-    breaking: 'Breaking Changes列表:\n',
-    footer: '关闭的issues列表. E.g.: #31, #34:\n',
-    confirmCommit: '确认提交?'
+    subject: '短说明:\n',
+    body: '长说明，使用"|"换行(可选)：\n',
+    breaking: '非兼容性说明 (可选):\n',
+    footer: '关联关闭的issue，例如：#31, #34(可选):\n',
+    confirmCommit: '确定提交说明?(yes/no)'
   },
-
   allowCustomScopes: true,
-  allowBreakingChanges: ['feat', 'fix']
+  allowBreakingChanges: ['特性', '修复'],
+  // limit subject length
+  subjectLimit: 100
 }

@@ -1,18 +1,36 @@
-import React from 'react'
-import Slider from '@/components/slider/slider'
+import React, { useEffect } from 'react'
+import Slider from '@/components/slider'
+import RecommendList from '@/components/list'
+import Scroll from '@/components/srcoll'
+import styled from 'styled-components'
+import { useSelector, useDispatch } from 'react-redux'
+import { getBannerList, getRecommendList } from '@/store/recommend'
+
+const Content = styled.div`
+  position: fixed;
+  top: 90px;
+  bottom: 0;
+  width: 100%;
+`
 
 function Recommend(props) {
-  const bannerList = [1, 2, 3, 4].map(item => {
-    return {
-      imageUrl:
-        'http://p1.music.126.net/ZYLJ2oZn74yUz5x8NBGkVA==/109951164331219056.jpg'
-    }
-  })
+  const { recommendList, bannerList } = useSelector(store => store.recommend)
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getBannerList())
+    dispatch(getRecommendList())
+  }, [])
 
   return (
-    <div>
-      <Slider bannerList={bannerList}></Slider>
-    </div>
+    <Content>
+      <Scroll className="list">
+        <div>
+          <Slider bannerList={bannerList}></Slider>
+          <RecommendList recommendList={recommendList}></RecommendList>
+        </div>
+      </Scroll>
+    </Content>
   )
 }
 

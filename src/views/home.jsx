@@ -20,7 +20,7 @@ const Top = styled.div`
   }
 `
 
-export const Tab = styled.div`
+const Tab = styled.div`
   height: 44px;
   display: flex;
   flex-direction: row;
@@ -41,7 +41,7 @@ export const Tab = styled.div`
     }
   }
 `
-export const TabItem = styled.div`
+const TabItem = styled.div`
   height: 100%;
   display: flex;
   flex-direction: row;

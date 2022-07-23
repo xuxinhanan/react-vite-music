@@ -6,18 +6,18 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "prepare": "husky install",
     "commit": "git-cz"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
+    "axios": "^0.27.2",
+    "better-scroll": "^2.0.0-beta.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.2",
     "react-router": "^6.3.0",
     "react-router-config": "^5.1.1",
     "react-router-dom": "^6.3.0",
-    "redux": "^4.2.0",
-    "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.5",
     "swiper": "^8.3.1"
   },
@@ -36,7 +36,6 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "vite": "^3.0.0"
   },
