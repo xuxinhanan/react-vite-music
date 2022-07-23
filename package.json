@@ -28,6 +28,7 @@
     "@vitejs/plugin-react": "^2.0.0",
     "commitizen": "^4.2.5",
     "commitlint": "^17.0.3",
+    "commitlint-config-cz": "^0.13.3",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^6.9.1",
     "eslint": "^8.19.0",
@@ -41,7 +42,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-customizable"
     }
   }
 }

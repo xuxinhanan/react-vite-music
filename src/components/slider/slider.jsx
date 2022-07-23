@@ -37,7 +37,7 @@ export const SliderContainer = styled.div`
     }
   }
 `
-
+// test
 SwiperCore.use([Autoplay])
 
 function Slider(props) {
