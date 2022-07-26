@@ -2,6 +2,7 @@ import React from 'react'
 import { getCount } from '@/assets/js/utils'
 import styled from 'styled-components'
 import style from '@/assets/global-style'
+import { useNavigate } from 'react-router'
 
 const ListWrapper = styled.div`
   max-width: 100%;
@@ -68,13 +69,18 @@ const ListItem = styled.div`
 `
 
 function RecommendList(props) {
+  const navigate = useNavigate()
+
   return (
     <ListWrapper>
       <h1 className="title">推荐歌单</h1>
       <List>
         {props.recommendList.map((item, index) => {
           return (
-            <ListItem key={item.id + index}>
+            <ListItem
+              key={item.id + index}
+              onClick={() => navigate(`/recommend/${item.id}`)}
+            >
               <div className="img_wrapper">
                 <div className="decorate"></div>
                 <img

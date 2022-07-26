@@ -5,6 +5,7 @@ import Scroll from '@/components/srcoll'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import { getBannerList, getRecommendList } from '@/store/recommend'
+import Loading from '@/components/loading'
 
 const Content = styled.div`
   position: fixed;
@@ -14,9 +15,11 @@ const Content = styled.div`
 `
 
 function Recommend(props) {
-  const { recommendList, bannerList } = useSelector(store => store.recommend)
-
+  const { recommendList, bannerList, enderLoading } = useSelector(
+    store => store.recommend
+  )
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(getBannerList())
     dispatch(getRecommendList())
@@ -30,6 +33,7 @@ function Recommend(props) {
           <RecommendList recommendList={recommendList}></RecommendList>
         </div>
       </Scroll>
+      {enderLoading ? <Loading></Loading> : null}
     </Content>
   )
 }

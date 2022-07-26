@@ -5,7 +5,8 @@ import { getBannerRequest, getRecommendListRequest } from '@/service/recommend'
 const initialState = {
   bannerList: [],
   recommendList: [],
-  loading: false
+  loading: false,
+  enderLoading: true
 }
 
 const getBannerList = createAsyncThunk('getBannerListRequest', async () => {
@@ -35,19 +36,22 @@ const recommendReducer = createSlice({
       })
       .addCase(getBannerList.rejected, (state, action) => {
         state.loading = false
-        console.log(__filename, '请求错误', action.error)
+        console.log('请求错误', action.error)
       })
 
       .addCase(getRecommendList.pending, state => {
+        state.enderLoading = true
         state.loading = true
       })
       .addCase(getRecommendList.fulfilled, (state, action) => {
+        state.enderLoading = false
         state.loading = false
         state.recommendList = action.payload
       })
       .addCase(getRecommendList.rejected, (state, action) => {
         state.loading = false
-        console.log(__filename, '请求错误', action.error)
+        state.enderLoading = true
+        console.log('请求错误', action.error)
       })
   }
 })
